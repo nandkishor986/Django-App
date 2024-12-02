@@ -73,12 +73,16 @@ WSGI_APPLICATION = 'ebdjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  # or 'django.db.backends.mysql' depending on your RDS
+        'NAME': 'nijikart-db',
+        'USER': 'postgres',
+        'PASSWORD': 'QqRAOvrSCFOH5WimiMa7',
+        'HOST': 'nijikart-db.c56iakoqoq7n.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',  # default port for PostgreSQL, change if using MySQL
     }
-}
+} """
 
 
 # Password validation
@@ -122,5 +126,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = 'redis://test-redis-cluster.wja3fb.clustercfg.use1.cache.amazonaws.com:6379/0'
-CELERY_RESULT_BACKEND = 'redis://test-redis-cluster.wja3fb.clustercfg.use1.cache.amazonaws.com:6379/0'
+CELERY_BROKER_URL = 'redis://nijikart-redis-cluster.wja3fb.ng.0001.use1.cache.amazonaws.com:6379/0'
+CELERY_RESULT_BACKEND = 'redis://nijikart-redis-cluster.wja3fb.ng.0001.use1.cache.amazonaws.com:6379/0'
